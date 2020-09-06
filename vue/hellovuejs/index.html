@@ -96,5 +96,27 @@
     data : model
   })
 </script>
+
+
+<div id="example">
+   <select id="regions">
+     <option disabled="disabled" selected>지역을 선택하세요</option>
+     <option v-for="(val, key) in regions" v-bind:value="key">{{val}}</option>
+   </select>
+</div>
+<script type="text/javascript">
+  var regions = {
+    "a" : "asia",
+    "b" :"america",
+    "c" : "europe",
+    "d" : "africa",
+    "e" : "oceania"
+  };
+
+  var list = new Vue ({
+    el : "#example",
+    data : {regions : regions}
+  });
+</script>
 </body>
 </html>
