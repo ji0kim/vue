@@ -63,8 +63,8 @@
         </tr>
       </thead>
       <tbody id="contacts">
-        <tr v-for="contact in contacts">
-          <td>{{contact.no}}</td>
+        <tr v-for="(contact, index) in contacts">
+          <td>{{index + 1}}</td>
           <td>{{contact.name}}</td>
           <td>{{contact.tel}}</td>
           <td>{{contact.address}}</td>
