@@ -35,13 +35,14 @@
   </script>
   -->
 
-  <div id="account">
+  <!-- <div id="account">
     예금액 : <input type="text" v-model="balance">
     <P>회원 등급</P>
     <span v-if="balance >= 100">Gold</span>
     <span v-else-if="balance >= 50">Silver</span>
     <span v-else="balance >= 100">Basic</span>
   </div>
+  
   <script>
     var simple1 = new Vue({
       el : '#account',
@@ -49,6 +50,51 @@
         balance : 0
       }
     })
-  </script>
+  </script> -->
+
+<div id="example">
+    <table id="list">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>이름</th>
+          <th>전화번호</th>
+          <th>주소</th>
+        </tr>
+      </thead>
+      <tbody id="contacts">
+        <tr v-for="contact in contacts">
+          <td>{{contact.no}}</td>
+          <td>{{contact.name}}</td>
+          <td>{{contact.tel}}</td>
+          <td>{{contact.address}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+  var model = {
+    "pageno" : 1,
+    "pagesize" : 10,
+    "totalcount" : 100,
+    "contacts" : [
+      {"no": "1", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "2", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "3", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "4", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "5", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "6", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "7", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "8", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "9", "name" : "a", "tel": "000-00", "address": "서울"},
+      {"no": "10", "name" : "a", "tel": "000-00", "address": "서울"}
+    ]
+  }
+  var list = new Vue ({
+    el : "#example",
+    data : model
+  })
+</script>
 </body>
 </html>
