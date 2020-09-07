@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="ex">
+        <p>국가명 : 
+            <input type="text" v-model="countryname" placeholder="국가명">
+        </p>
+        <table id="list">
+            <thead>
+                <tr v-for="c in filtered">
+                    <th>{{c.no}}</th>
+                    <th>{{c.name}}</th>
+                    <th>{{c.capital}}</th>
+                    <th>{{c.region}}</th>
+                </tr>
+            </thead>
+            <tbody id ="contacts">
+                
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var model = {
+            countryname : "",
+            countries : [
+                {no: 1, name : "미국", capital : "워싱턴DC", region : "america"},
+                {no: 2, name : "나미비아", capital : "빈트후크", region : "america"},
+                {no: 3, name : "프랑스", capital : "파리", region : "america"},
+                {no: 4, name : "중국", capital : "베이징", region : "asia"},
+                {no: 5, name : "미국", capital : "워싱턴DC", region : "america"},
+                {no: 6, name : "멕시코", capital : "멕시코시티", region : "america"},
+                {no: 7, name : "미국", capital : "워싱턴DC", region : "america"},
+                {no: 8, name : "베네수엘라", capital : "카라카스", region : "america"},
+                {no: 9, name : "미국", capital : "워싱턴DC", region : "america"},
+                {no: 10, name : "미국", capital : "워싱턴DC", region : "america"},
+                {no: 11, name : "미국", capital : "워싱턴DC", region : "america"},
+            ]
+        }
+
+            var clist = new Vue ({
+                el : "#ex",
+                data : model,
+                computed : {
+                    filtered : function(){
+                        var cname = this.countryname.trim();
+                        return this.countries.filter(function(item, index){
+                            if (item.name.indexOf(cname) > -1) {
+                                return true;
+                            }
+                        });
+                    }
+                }
+            });
+    </script>
+</body>
+</html>
